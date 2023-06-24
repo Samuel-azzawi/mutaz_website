@@ -1,24 +1,50 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import UserContext from "./Components/UserContext/UserContext";
+import Home from "./Components/Home/Home";
 
 function App() {
+  const [language, setLanguage] = useState("عربي");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserContext.Provider value={{ language, setLanguage }}>
+      <div className="App">
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <div>
+                  <Home />
+                </div>
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <div>
+                </div>
+              }
+            />
+            <Route
+              path="/contact-us"
+              element={
+                <div>
+                </div>
+              }
+            />
+            <Route
+              path="/privacy-policy"
+              element={
+                <div>
+                </div>
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+      </div>
+      <footer>Copyright &copy; MUTAPP. All Rights Reserved.</footer>
+    </UserContext.Provider>
   );
 }
 

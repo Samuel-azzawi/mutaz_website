@@ -3,12 +3,10 @@ import { GrWindows } from "react-icons/gr";
 import { AiFillApple, AiFillAndroid, AiOutlineSearch } from "react-icons/ai";
 import { HiSquares2X2 } from "react-icons/hi2";
 import { FcSearch } from "react-icons/fc";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 function Home() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null);
 
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
@@ -44,22 +42,11 @@ function Home() {
     { title: "Card 3", content: "This is the content of Card 3" },
   ];
 
-  function toggleDropdown() {
-      setIsOpen(!isOpen);
+    function toggleMenu() {
+      const menuItems = document.querySelector(".menu-items");
+    menuItems.style.display =
+      menuItems.style.display === "none" ? "block" : "none";
   }
-  useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleOutsideClick);
-
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, []);
 
 
   return (
@@ -81,39 +68,35 @@ function Home() {
           </div>
         </div>
         <div className="menu">
-          <button className="menu-toggle" onClick={toggleDropdown}>
+          <button className="menu-toggle" onClick={toggleMenu}>
             Menu
           </button>
-          {isOpen && (
-            <div ref={dropdownRef}>
-              <div className="menu-items">
-                <button className="button-48">
-                  <span className="text">
-                    <GrWindows className="logo" />
-                    <p>Windows</p>
-                  </span>
-                </button>
-                <button className="button-48">
-                  <span className="text">
-                    <AiFillApple className="logo" />
-                    <p>Mac</p>
-                  </span>
-                </button>
-                <button className="button-48">
-                  <span className="text">
-                    <AiFillAndroid className="logo" />
-                    <p>Android</p>
-                  </span>
-                </button>
-                <button className="button-48">
-                  <span className="text">
-                    <HiSquares2X2 className="logo" />
-                    <p>Categories</p>
-                  </span>
-                </button>
-              </div>
-            </div>
-          )}
+          <div className="menu-items">
+            <button className="button-48">
+              <span className="text">
+                <GrWindows className="logo" />
+                <p>Windows</p>
+              </span>
+            </button>
+            <button className="button-48">
+              <span className="text">
+                <AiFillApple className="logo" />
+                <p>Mac</p>
+              </span>
+            </button>
+            <button className="button-48">
+              <span className="text">
+                <AiFillAndroid className="logo" />
+                <p>Android</p>
+              </span>
+            </button>
+            <button className="button-48">
+              <span className="text">
+                <HiSquares2X2 className="logo" />
+                <p>Categories</p>
+              </span>
+            </button>
+          </div>
         </div>
       </div>
       <div className=""></div>

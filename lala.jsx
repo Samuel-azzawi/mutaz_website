@@ -45,7 +45,7 @@ function Home() {
   ];
 
   function toggleDropdown() {
-      setIsOpen(!isOpen);
+    setIsOpen(!isOpen);
   }
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -60,7 +60,6 @@ function Home() {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, []);
-
 
   return (
     <div className="page_container">
