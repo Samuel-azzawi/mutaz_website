@@ -45,7 +45,7 @@ function Home() {
     function toggleMenu() {
       const menuItems = document.querySelector(".menu-items");
     menuItems.style.display =
-      menuItems.style.display === "none" ? "block" : "none";
+      menuItems.style.display === "block" ? "none" : "block";
   }
 
 

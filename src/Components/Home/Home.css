@@ -291,6 +291,7 @@ button {
   }
 
   .menu-items {
+    display: none;
     justify-self: left;
     position: absolute;
     top: 100%;
@@ -300,7 +301,7 @@ button {
   }
 
   .menu-items button {
-    display: block;
+  
     width: 100%;
   }
 }
