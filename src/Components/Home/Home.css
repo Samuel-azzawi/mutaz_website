@@ -5,6 +5,7 @@
   justify-content: center;
   margin: 0px;
   padding: 0px;
+    height: 110px;
 }
 
 button {
@@ -136,16 +137,15 @@ button {
 }
 
 @media screen and (max-width: 620px) {
+  
   .searchBox:hover > .searchInput {
     width: 120px;
     padding: 0 6px;
   }
-  .searchBoxContainer{
-    top: -3.5%;
+  .searchBoxContainer {
     left: 22%;
     width: 200px;
   }
-  
 }
 
 .cards_container {
@@ -216,7 +216,7 @@ button {
   flex-direction: row;
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 768px) {
   .menu-toggle {
     padding: 0.6em 2em;
     border: none;
@@ -288,6 +288,7 @@ button {
     width: 180px;
     height: 50px;
     right: 1%;
+    top: 20%;
   }
 
   .menu-items {
@@ -301,7 +302,6 @@ button {
   }
 
   .menu-items button {
-  
     width: 100%;
   }
 }
