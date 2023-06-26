@@ -268,7 +268,7 @@ button {
   top: 100%;
   right: 0;
   width: 100%;
-  background-color: #082246;
+background: linear-gradient(to top, rgba(8, 34, 70, 0.5), #082246);
   opacity: 0;
   animation: showMenuItems 0.7s ease forwards;
 }
