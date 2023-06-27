@@ -3,7 +3,7 @@ import { GrWindows } from "react-icons/gr";
 import { HiSquares2X2 } from "react-icons/hi2";
 import "./Menu.css";
 import useOutsideClick from "./useOutsideClick";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import useWindowSize from "./useWindowSize";
 
 function Menu() {
@@ -17,12 +17,22 @@ function Menu() {
   };
 
   const handleOutsideClick = () => {
-    if(size.width < 800){
+    if(size.width < 980){
     const menuItems = menuRef.current.querySelector(".menu-items");
     menuItems.style.display = "none";}
   };
 
   useOutsideClick(menuRef, handleOutsideClick);
+
+  useEffect(() => {
+    const menuItems = menuRef.current.querySelector(".menu-items");
+
+    if (size.width > 980) {
+      menuItems.style.display = "block";
+    } else {
+      menuItems.style.display = "none";
+    }
+  }, [size]);
 
   return (
     <div className="menu" ref={menuRef}>
