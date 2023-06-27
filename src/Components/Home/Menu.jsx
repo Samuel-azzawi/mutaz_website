@@ -4,8 +4,10 @@ import { HiSquares2X2 } from "react-icons/hi2";
 import "./Menu.css";
 import useOutsideClick from "./useOutsideClick";
 import { useRef } from "react";
+import useWindowSize from "./useWindowSize";
 
 function Menu() {
+  const size = useWindowSize(); 
   const menuRef = useRef(null);
 
   const toggleMenu = () => {
@@ -15,8 +17,9 @@ function Menu() {
   };
 
   const handleOutsideClick = () => {
+    if(size.width < 800){
     const menuItems = menuRef.current.querySelector(".menu-items");
-    menuItems.style.display = "none";
+    menuItems.style.display = "none";}
   };
 
   useOutsideClick(menuRef, handleOutsideClick);
