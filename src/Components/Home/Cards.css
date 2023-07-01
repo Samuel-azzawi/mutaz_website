@@ -1,20 +1,21 @@
 .cards_container {
-  display: flex;
+  max-width: 80%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 10px;
+  margin: auto;
 }
 
 .card {
   display: grid;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
   margin-bottom: 15px;
   margin-top: 15px;
-  width: 20%;
-  height: 200px;
+  width: 15rem;
+  height: 19rem;
   align-self: center;
   background-color: #ffffff91;
   background-image: none;
@@ -42,6 +43,7 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  place-self: center;
 }
 
 .card:hover {
@@ -54,11 +56,13 @@
 }
 
 
-
+.card p {
+  margin: 0;
+}
 
 
 .card-image {
-  width: 60%;
+  width: 100%;
   place-self: center;
 }
 
@@ -67,17 +71,37 @@
 }
 
 @media screen and (max-width: 768px) {
+  
+  .cards_container {
+    grid-template-columns: repeat(2, 45%);
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
   .card {
-    width: 40%;
+    width: 100%;
+    height: 100%;
+    margin: 2rem;
   }
 
   .card-image {
-    width: 50%;
+    width: 100%;
   }
 }
 
-@media (max-width: 35rem) {
-  .card-image {
-    width: 60%;
+@media (max-width: 1000px) and (min-width: 768px) {
+  .cards_container {
+    max-width: 100%;
+    grid-template-columns: repeat(3, 30%);
   }
+
+  .card {
+    width: 80%;
+    height: max-content;
+  }
+
+  .card p {
+    margin: 1.25rem;
+  }
+  
 }
