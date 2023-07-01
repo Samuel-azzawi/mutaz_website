@@ -43,7 +43,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </div>
-      <footer>Copyright &copy; MUTAPP. All Rights Reserved.</footer>
+      <footer>Copyright &copy; REPAIR. All Rights Reserved.</footer>
     </UserContext.Provider>
   );
 }

@@ -2,16 +2,18 @@ import Cards from "./Cards";
 import "./Home.css";
 import Menu from "./Menu";
 import Search from "./Search";
+import headerLogo from "./logos/headerLogo.png";
 
 function Home() {
 
   return (
     <div className="page_container">
       <div className="header">
-        <Search/>
-        <Menu/>
+        <img src={headerLogo} alt="img" className="headerLogo"/>
+        <Search />
+        <Menu />
       </div>
-      <Cards/>
+      <Cards />
     </div>
   );
 }

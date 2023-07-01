@@ -8,6 +8,14 @@
   height: 126px;
 }
 
+.headerLogo{
+  position: absolute;
+  left: 0;
+  width: 126px;
+  color: #ffffff;
+  
+}
+
 button {
   width: 200px;
 }
