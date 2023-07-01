@@ -8,8 +8,8 @@ function Cards() {
   const Card = ({ title, content, onClick }) => {
     return (
       <button className="card" onClick={onClick}>
-        <div className="card-text">{content}</div>
-        <h3>{title}</h3>
+        <div className="card-image">{content}</div>
+        <p>{title}</p>
       </button>
     );
   };

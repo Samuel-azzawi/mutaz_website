@@ -7,7 +7,7 @@
 }
 
 .card {
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -54,16 +54,30 @@
 }
 
 
+
+
+
+.card-image {
+  width: 60%;
+  place-self: center;
+}
+
+.images {
+  width: 100%;
+}
+
 @media screen and (max-width: 768px) {
   .card {
     width: 40%;
   }
+
+  .card-image {
+    width: 50%;
+  }
 }
 
-.card-text {
-  text-align: center;
-}
-
-.images{
-  width: 50%;
+@media (max-width: 35rem) {
+  .card-image {
+    width: 60%;
+  }
 }
