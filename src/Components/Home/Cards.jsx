@@ -53,7 +53,6 @@ function Cards() {
     <div className="cards_container">
       {cards.map((card, index) => {
         const imageName = `${card["{title"]}`;
-        console.log(imageName);
         return (
           <Card
             key={index}
