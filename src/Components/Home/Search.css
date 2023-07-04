@@ -159,9 +159,21 @@ ul.suggestions li:hover {
     width: 80%;
   }
   .form-wrapper .search {
-    width: 60%;
+    width: 63%;
   }
   ul.suggestions {
     width: 80%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+.form-wrapper .search {
+    width: 56.5%;
+  }
+}
+
+@media screen and (max-width: 280px) {
+.form-wrapper .search {
+    width: 45%;
   }
 }
