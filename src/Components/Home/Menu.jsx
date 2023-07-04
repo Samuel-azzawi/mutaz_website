@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
 import useWindowSize from "./useWindowSize";
 
 function Menu() {
-  const size = useWindowSize(); 
+  const size = useWindowSize();
   const menuRef = useRef(null);
 
   const toggleMenu = () => {
@@ -17,9 +17,10 @@ function Menu() {
   };
 
   const handleOutsideClick = () => {
-    if(size.width < 980){
-    const menuItems = menuRef.current.querySelector(".menu-items");
-    menuItems.style.display = "none";}
+    if (size.width < 980) {
+      const menuItems = menuRef.current.querySelector(".menu-items");
+      menuItems.style.display = "none";
+    }
   };
 
   useOutsideClick(menuRef, handleOutsideClick);
