@@ -1,19 +1,17 @@
 .header {
   background: linear-gradient(45deg, #001f3f, #004d80);
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 0px;
-  padding: 0px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas: 
+  'logo . nav nav . .';
+  margin: 0;
+  padding: 0;
   height: 126px;
 }
 
 .headerLogo{
-  position: absolute;
-  left: 0;
   width: 126px;
   color: #ffffff;
-  
 }
 
 button {
@@ -21,6 +19,7 @@ button {
 }
 .logo {
   font-size: 40px;
+  grid-area: logo;
 }
 .logo_search {
   font-size: 20px;
@@ -86,12 +85,6 @@ button {
 .button-48 span {
   z-index: 1;
   position: relative;
-}
-
-@media screen and (max-width: 1170px) {
-  .header {
-    justify-content: right;
-  }
 }
 
 
