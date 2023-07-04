@@ -53,7 +53,8 @@ function Menua() {
             <span className={`line ${isOpen ? "line2" : ""}`}></span>
             <span className={`line ${isOpen ? "line3" : ""}`}></span>
           </div>
-          <ul className={`menu-items ${isOpen ? "open" : ""}`}>
+          <div className="container">
+          <ul className={`menu-items ${isOpen ? "open" : "close"}`}>
             <li className="button-48">
               <span className="text">
                 <GrWindows className="logo" />
@@ -79,6 +80,7 @@ function Menua() {
               </span>
             </li>
           </ul>
+        </div>
         </div>
       )}
     </div>
