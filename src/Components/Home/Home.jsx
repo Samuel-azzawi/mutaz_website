@@ -1,6 +1,6 @@
 import Cards from "./Cards";
 import "./Home.css";
-import Menua from "./Menua";
+import Menu from "./Menu";
 import Search from "./Search";
 import headerLogo from "./logos/headerLogo.png";
 
@@ -9,7 +9,7 @@ function Home() {
     <div className="page_container">
       <div className="header">
         <img src={headerLogo} alt="img" className="headerLogo" />
-        <Menua />
+        <Menu />
       </div>
         <Search />
       <Cards />
