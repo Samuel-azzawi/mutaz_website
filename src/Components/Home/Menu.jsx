@@ -2,18 +2,22 @@ import { AiFillAndroid, AiFillApple } from "react-icons/ai";
 import { GrWindows } from "react-icons/gr";
 import { HiSquares2X2 } from "react-icons/hi2";
 import "./Menu.css";
+
 import useWindowSize from "./useWindowSize";
 import { useState, useRef } from "react";
 import useOutsideClick from "./useOutsideClick";
 
+
 function Menu() {
-  const [isOpen, setIsOpen] = useState(false);
+  const size = useWindowSize();
+  const menuRef = useRef(null);
 
   const size = useWindowSize();
 
   const menuRef = useRef(null);
 
   const toggleMenu = () => {
+
     console.log("hi");
     setIsOpen(!isOpen);
   };
@@ -21,10 +25,12 @@ function Menu() {
   const handleOutsideClick = () => {
     if (size.width < 980 && isOpen) {
       setIsOpen(false)
+
     }
   };
 
   useOutsideClick(menuRef, handleOutsideClick);
+
 
   return (
     <>
