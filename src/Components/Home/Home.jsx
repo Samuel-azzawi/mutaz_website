@@ -11,7 +11,7 @@ function Home() {
         <img src={headerLogo} alt="img" className="headerLogo" />
         <Menu />
       </div>
-        <Search />
+      <Search />
       <Cards />
     </div>
   );

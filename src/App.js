@@ -1,4 +1,4 @@
-import './App.css';
+import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import UserContext from "./Components/UserContext/UserContext";
@@ -19,27 +19,9 @@ function App() {
                 </div>
               }
             />
-            <Route
-              path="/about"
-              element={
-                <div>
-                </div>
-              }
-            />
-            <Route
-              path="/contact-us"
-              element={
-                <div>
-                </div>
-              }
-            />
-            <Route
-              path="/privacy-policy"
-              element={
-                <div>
-                </div>
-              }
-            />
+            <Route path="/about" element={<div></div>} />
+            <Route path="/contact-us" element={<div></div>} />
+            <Route path="/privacy-policy" element={<div></div>} />
           </Routes>
         </BrowserRouter>
       </div>

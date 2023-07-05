@@ -1,25 +1,21 @@
 .header {
   background: linear-gradient(45deg, #001f3f, #004d80);
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-areas: 
-  'logo . nav nav . .';
-  margin: 0;
-  padding: 0;
+
+  margin: 0px;
+  padding: 0px;
   height: 126px;
 }
 
 .headerLogo{
+  position: absolute;
+  left: 0;
   width: 126px;
   color: #ffffff;
+  
 }
 
-button {
-  width: 200px;
-}
 .logo {
-  font-size: 40px;
-  grid-area: logo;
+  font-size: 60px;
 }
 .logo_search {
   font-size: 20px;
@@ -41,7 +37,8 @@ button {
   margin: 0;
   opacity: 1;
   outline: 0;
-  padding: 1.5em 2.2em;
+  padding: 10px ;
+  width: 130px;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -61,6 +58,7 @@ button {
   animation: opacityFallbackOut 0.5s step-end forwards;
   backface-visibility: hidden;
   background-color: #000000;
+  width: 100%;
   clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
   content: "";
   height: 100%;
@@ -87,4 +85,9 @@ button {
   position: relative;
 }
 
+@media screen and (max-width: 1170px) {
+  .header {
+    justify-content: right;
+  }
+}
 
