@@ -57,7 +57,10 @@ function Menu() {
           </button>
         </div>
       ) : (
-        <div className={`menu-container ${isOpen ? "open" : "close"}`} ref={menuRef}>
+        <div
+          className={`menu-container ${isOpen ? "open" : "close"}`}
+          ref={menuRef}
+        >
           <div className={`hamburger-menu ${isOpen ? "open" : ""}`}>
             <div className="hamburger-icon" onClick={toggleMenu}>
               <span className={`line ${isOpen ? "line1" : ""}`}></span>
@@ -66,7 +69,7 @@ function Menu() {
             </div>
             <div className="container">
               <ul className={`menu-items ${isOpen ? "open" : "close"}`}>
-                <li className="button-48">
+                <li className="button-48 windows">
                   <span className="text">
                     <GrWindows className="logo" />
                     <p>Windows</p>
@@ -82,12 +85,6 @@ function Menu() {
                   <span className="text">
                     <AiFillAndroid className="logo" />
                     <p>Android</p>
-                  </span>
-                </li>
-                <li className="button-48">
-                  <span className="text">
-                    <HiSquares2X2 className="logo" />
-                    <p>Categories</p>
                   </span>
                 </li>
               </ul>
