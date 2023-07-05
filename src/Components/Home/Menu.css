@@ -8,6 +8,7 @@
   visibility: visible;
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
+
 }
 
 .menu-container.close {
@@ -42,6 +43,8 @@
 .hamburger-icon {
   display: inline-block;
   cursor: pointer;
+  position: absolute;
+  top: -15px;
 }
 
 .line {
@@ -92,6 +95,8 @@
   padding: 0;
   z-index: 3;
   transition: transform 0.7s ease;
+  position: relative;
+  top: 28px;
 }
 .menu-items.close {
   transform: translateX(100%);
