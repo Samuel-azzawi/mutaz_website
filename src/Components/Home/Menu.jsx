@@ -3,7 +3,7 @@ import { GrWindows } from "react-icons/gr";
 import { HiSquares2X2 } from "react-icons/hi2";
 import "./Menu.css";
 import useWindowSize from "./useWindowSize";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import useOutsideClick from "./useOutsideClick";
 
 function Menu() {
@@ -25,6 +25,7 @@ function Menu() {
   };
 
   useOutsideClick(menuRef, handleOutsideClick);
+
 
   return (
     <>
@@ -56,7 +57,7 @@ function Menu() {
           </button>
         </div>
       ) : (
-        <div className="menu-container" ref={menuRef}>
+        <div className={`menu-container ${isOpen ? "open" : "close"}`} ref={menuRef}>
           <div className={`hamburger-menu ${isOpen ? "open" : ""}`}>
             <div className="hamburger-icon" onClick={toggleMenu}>
               <span className={`line ${isOpen ? "line1" : ""}`}></span>

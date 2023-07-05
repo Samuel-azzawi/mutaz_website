@@ -1,11 +1,28 @@
 .menu-container {
   display: flex;
-  justify-content: flex-end; /* Aligns the menu to the right edge */
+  justify-content: flex-end;
   position: absolute;
   top: 98px;
   right: 0;
   z-index: 9999;
-  
+  visibility: visible;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+}
+
+.menu-container.close {
+  animation-name: hide-menu;
+}
+@keyframes hide-menu {
+  to {
+    visibility: hidden;
+  }
+}
+.menu-container.open {
+  visibility: visible;
+}
+.menu-container.close .hamburger-icon {
+  visibility: visible;
 }
 
 .hamburger-menu {
@@ -13,7 +30,7 @@
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-   -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
 }
 .hamburger-menu {
   user-select: none;
@@ -21,7 +38,6 @@
   -webkit-user-select: none;
   -ms-user-select: none;
 }
-
 
 .hamburger-icon {
   display: inline-block;
