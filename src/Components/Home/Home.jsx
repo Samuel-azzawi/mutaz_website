@@ -2,7 +2,7 @@ import Cards from "./Cards";
 import "./Home.css";
 import Menu from "./Menu";
 import Search from "./Search";
-import headerLogo from "./logos/headerLogo.png";
+import headerLogo from "./logos/headerLogo.svg";
 
 function Home() {
   return (

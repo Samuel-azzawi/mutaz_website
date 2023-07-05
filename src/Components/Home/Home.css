@@ -6,12 +6,13 @@
   height: 126px;
 }
 
-.headerLogo{
+.headerLogo {
   position: absolute;
   left: 0;
-  width: 126px;
-  color: #ffffff;
-  
+  width: 136px;
+  margin: 0;
+  -webkit-filter: invert(0.75); /* safari 6.0 - 9.0 */
+  filter: invert(0.75);
 }
 
 .logo {
@@ -37,7 +38,7 @@
   margin: 0;
   opacity: 1;
   outline: 0;
-  padding: 10px ;
+  padding: 10px;
   width: 130px;
   position: relative;
   text-align: center;
@@ -90,4 +91,3 @@
     justify-content: right;
   }
 }
-

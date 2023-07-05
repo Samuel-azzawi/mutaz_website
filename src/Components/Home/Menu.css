@@ -31,13 +31,6 @@
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
-.hamburger-menu {
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
 }
 
 .hamburger-icon {
