@@ -26,7 +26,6 @@ function Menu() {
 
   useOutsideClick(menuRef, handleOutsideClick);
 
-
   return (
     <>
       {size.width > 980 ? (

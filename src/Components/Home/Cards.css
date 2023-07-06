@@ -16,6 +16,7 @@
   margin-top: 15px;
   width: 15rem;
   height: 19rem;
+  max-height: 19rem;
   align-self: center;
   background-color: #ffffff91;
   background-image: none;
@@ -55,25 +56,23 @@
   box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
 }
 
-
 .card p {
   margin: 0;
   font-weight: bolder;
   font-size: larger;
 }
 
-
 .card-image {
   width: 100%;
   place-self: center;
+  object-fit: cover;
 }
 
 .images {
-  width: 100%;
+  width: 90%;
 }
 
 @media screen and (max-width: 768px) {
-  
   .cards_container {
     grid-template-columns: repeat(2, 45%);
     gap: 2rem;
@@ -87,7 +86,7 @@
   }
 
   .card-image {
-    width: 100%;
+    width: 90%;
   }
 }
 
@@ -99,11 +98,12 @@
 
   .card {
     width: 80%;
-    height: max-content;
   }
 
   .card p {
     margin: 1.25rem;
   }
-  
+  .card-image {
+    width: 90%;
+  }
 }
