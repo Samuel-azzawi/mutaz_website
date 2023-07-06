@@ -9,8 +9,8 @@ const Card = ({ title, content, onClick }) => {
       const cardElement = titleElement.parentNode;
       const availableHeight = cardElement.offsetHeight - titleElement.offsetTop;
 
-      if (title.length > 20) {
-        let fontSize = 18; // Initial font size
+      if (title.length > 25) {
+        let fontSize = 20; // Initial font size
         titleElement.style.fontSize = `${fontSize}px`;
 
         while (titleElement.scrollHeight > availableHeight && fontSize > 10) {
@@ -31,9 +31,11 @@ const Card = ({ title, content, onClick }) => {
   return (
     <button className="card" onClick={onClick}>
       <div className="card-image">{content}</div>
-      <p className={"text"} ref={titleRef}>
-        {title}
-      </p>
+      <div className="card-content">
+        <p className={"text"} ref={titleRef}>
+          {title}
+        </p>
+      </div>
     </button>
   );
 };
