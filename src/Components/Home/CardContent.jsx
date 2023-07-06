@@ -46,7 +46,7 @@ const CardContent = [
   },
   {
     title: "prs",
-    name: "PremiereProsss",
+    name: "PremiereProsssaaaa aaaaaaaaaaaaaaa uojuojoujoujoujoujououjou",
     year: "2023",
     v: ["23.5.0.56"],
     link: [
@@ -64,7 +64,7 @@ const CardContent = [
   },
   {
     title: "me",
-    name: "MediaEncoder",
+    name: "Media Encoder",
     year: "2023",
     v: ["23.5.0.51"],
     link: [

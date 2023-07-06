@@ -1,19 +1,10 @@
-import React from "react";
 import "./Cards.css";
 import { CardContent } from "./CardContent";
 import CardImage from "./CardImage";
+import Card from "./Card";
 
 function Cards() {
   const cards = CardContent;
-
-  const Card = ({ title, content, onClick }) => {
-    return (
-      <button className="card" onClick={onClick}>
-        <div className="card-image">{content}</div>
-        <p>{title}</p>
-      </button>
-    );
-  };
 
   const handleClick = (title) => {
     console.log(`Clicked ${title}`);
