@@ -1,6 +1,7 @@
 .header {
+  display: flex;
+  justify-content: center;
   background: linear-gradient(45deg, #001f3f, #004d80);
-
   margin: 0px;
   padding: 0px;
   height: 126px;
@@ -58,7 +59,13 @@
 .button-48:before {
   animation: opacityFallbackOut 0.5s step-end forwards;
   backface-visibility: hidden;
-  background-color: #000000;
+  background: linear-gradient(
+    to right,
+    #abeeab28 0%,
+    #9c6e6e49 50%,
+    #8c8cc538 100%
+  );
+  color: #fff;
   width: 100%;
   clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
   content: "";
@@ -89,5 +96,12 @@
 @media screen and (max-width: 1170px) {
   .header {
     justify-content: right;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .button-48:before {
+    background: none;
+    color: none;
   }
 }
