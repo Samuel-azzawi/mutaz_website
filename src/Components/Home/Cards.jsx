@@ -14,7 +14,7 @@ function Cards() {
   };
   useEffect(() => {
   fit("#my-element", {
-    minSize: 8,
+    minSize: 12,
     maxSize: 18,
   });
 },[])

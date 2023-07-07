@@ -37,7 +37,7 @@ const CardContent = [
   },
   {
     title: "pr",
-    name: "PremiereProjnjn23589988998 9898989555555558 9446kmkm",
+    name: "PremierePro",
     year: "2023",
     v: ["23.5.0.56"],
     link: [
@@ -46,7 +46,7 @@ const CardContent = [
   },
   {
     title: "prs",
-    name: "PremiereProsssaaaa aaaaaaaaaaaaaaa uojuojoujoujoujoujououjou",
+    name: "very fucking long title that never ends hahah ahahahah ahahaha hahaha",
     year: "2023",
     v: ["23.5.0.56"],
     link: [
