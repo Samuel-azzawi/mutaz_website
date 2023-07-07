@@ -37,7 +37,7 @@ const CardContent = [
   },
   {
     title: "pr",
-    name: "PremierePro",
+    name: "PremiereProjnjn23589988998 9898989555555558 9446kmkm",
     year: "2023",
     v: ["23.5.0.56"],
     link: [

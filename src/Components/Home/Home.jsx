@@ -6,14 +6,14 @@ import headerLogo from "../Files/logos/headerLogo.svg";
 
 function Home() {
   return (
-    <div className="page_container">
+    <>
       <div className="header">
         <img src={headerLogo} alt="img" className="headerLogo" />
         <Menu />
       </div>
       <Search />
       <Cards />
-    </div>
+    </>
   );
 }
 export default Home;

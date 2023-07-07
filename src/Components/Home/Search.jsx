@@ -14,7 +14,7 @@ function Search() {
   });
 
   const handleFormSubmit = (event) => {
-    event.preventDefault(); // Prevents the default form submission behavior
+    event.preventDefault();
     handleSearchButtonClick();
   };
 
@@ -29,30 +29,8 @@ function Search() {
   };
 
   useEffect(() => {
-    const parseCardContent = (content) => {
-      const cardRegex =
-        /\{title:(.*?), name:(.*?), year:(.*?), v:(.*?), link:(.*?)\}/g;
-      const cards = [];
-
-      let match;
-      while ((match = cardRegex.exec(content))) {
-        const card = {
-          title: match[1],
-          name: match[2],
-          year: parseInt(match[3]),
-          v: match[4],
-          link: match[5],
-        };
-        cards.push(card);
-      }
-
-      return cards;
-    };
-
-    const parsedCardContent = parseCardContent(CardContent);
-
     if (searchValue.length >= 1) {
-      const filteredSuggestions = parsedCardContent.filter((card) =>
+      const filteredSuggestions = CardContent.filter((card) =>
         card.name.toLowerCase().includes(searchValue.toLowerCase())
       );
       setSuggestions(filteredSuggestions);
@@ -76,7 +54,6 @@ function Search() {
           GO
         </button>
       </form>
-      {/* Render suggestions */}
       {suggestions.length > 0 && (
         <ul className="suggestions" ref={suggestionsRef}>
           {suggestions.map((card) => (
