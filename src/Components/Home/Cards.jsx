@@ -1,27 +1,32 @@
 import "./Cards.css";
+import { FaCaretDown } from "react-icons/fa";
 import { CardContent } from "./CardContent";
 import CardImage from "./CardImage";
 import fitty from "fitty";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import useOutsideClick from "./useOutsideClick";
 
 function Cards() {
   const [info, setInfo] = useState({});
   const [isHiding, setIsHiding] = useState(false);
   const cards = CardContent;
+  const menuRef = useRef(null);
 
   const handleClick = (title) => {
-    if (info && info.title === title) {
-      setTimeout(() => {
-        setInfo({});
-        setIsHiding(false);
-      }, 200); // Delay to match the animation duration
-    } else setInfo(cards.find((card) => card.title === title));
+    if (info.title !== title) {
+      setInfo(cards.find((card) => card.title === title));
+    }
   };
 
   const downloadButton = () => {
     window.open(info.link[0], "_blank");
   };
-
+  const closingCardInfo = () => {
+    setInfo({});
+    setTimeout(() => {
+      setIsHiding(false);
+    }, 100);
+  };
   useEffect(() => {
     fitty("#my-element", {
       minSize: 12,
@@ -29,8 +34,17 @@ function Cards() {
     });
   }, [info]);
 
+  const handleOutsideClick = () => {
+    setInfo({});
+    setTimeout(() => {
+      setIsHiding(false);
+    }, 100);
+  };
+
+  useOutsideClick(menuRef, handleOutsideClick);
+
   return (
-    <div className="cards_container">
+    <div className="cards_container" ref={menuRef}>
       {cards.map((card, index) => {
         const imageName = `${card.title}`;
         const isSelected = info && info.title === card.title;
@@ -52,6 +66,10 @@ function Cards() {
                   {isSelected && !isHiding && (
                     <>
                       <div>
+                        <FaCaretDown
+                          className="card-info-closing-button"
+                          onClick={closingCardInfo}
+                        />
                         <h1 id="my-element" className="card-info-title">
                           {info.name}
                         </h1>

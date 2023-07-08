@@ -194,6 +194,12 @@
   padding: 10px;
   margin: 0;
 }
+.card-info-closing-button{
+position: absolute;
+right: 0;
+top: -10px;
+font-size: 50px;
+}
 /* ------------------------ */
 
 @media (max-width: 1050px) {
