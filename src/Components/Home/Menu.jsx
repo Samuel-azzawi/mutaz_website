@@ -48,12 +48,6 @@ function Menu() {
               <p>Android</p>
             </span>
           </button>
-          <button className="button-48">
-            <span className="text">
-              <HiSquares2X2 className="logo" />
-              <p>Categories</p>
-            </span>
-          </button>
         </div>
       ) : (
         <div

@@ -194,12 +194,12 @@
   padding: 10px;
   margin: 0;
 }
-.card-info-closing-button{
-position: absolute;
-right: 0;
-top: -10px;
-font-size: 50px;
-z-index: 4;
+.card-info-closing-button {
+  position: absolute;
+  right: 0;
+  top: -10px;
+  font-size: 50px;
+  z-index: 4;
 }
 /* ------------------------ */
 
@@ -276,6 +276,7 @@ z-index: 4;
     position: absolute;
     display: inline-flex;
     align-self: center;
+    justify-content: center;
     bottom: 6.5px;
     right: 5px;
     border: #fff solid 2px;
@@ -294,6 +295,7 @@ z-index: 4;
     position: absolute;
     display: inline-flex;
     align-self: center;
+    justify-content: center;
     bottom: 5px;
     left: 10px;
     border: #fff solid 2px;
@@ -321,6 +323,19 @@ z-index: 4;
 
 @media screen and (max-width: 360px) {
   .card {
+    width: 350px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .card {
     width: 300px;
+  }
+  .downloadButton {
+    font-size: 13px;
+    padding: 5px;
+  }
+  .otherVersionsButton {
+    font-size: 13px;
+    padding: 5px;
   }
 }

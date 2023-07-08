@@ -1,6 +1,6 @@
 import React from "react";
 import NoImage from "../Files/logos/No-Image.png";
-import "./Cards.css"
+import "./Cards.css";
 
 function CardImage({ imageName }) {
   let fullName = "";
@@ -34,7 +34,7 @@ function CardImage({ imageName }) {
   };
 
   getImagePath(imageName);
-  
+
   return (
     <>
       {images[fullName] ? (
