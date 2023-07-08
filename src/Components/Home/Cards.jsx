@@ -19,8 +19,8 @@ function Cards() {
   };
 
   const downloadButton = () => {
-   window.open(info.link[0], "_blank");
-  }
+    window.open(info.link[0], "_blank");
+  };
 
   useEffect(() => {
     fitty("#my-element", {
@@ -50,15 +50,28 @@ function Cards() {
               <div className="card-info-container">
                 <div className={`card-info ${isSelected ? "show" : "hide"}`}>
                   {isSelected && !isHiding && (
-                    <div>
-                      <h1 id="my-element">{info.name}</h1>
-                      <p>
-                        Version: {info.v[0]} ----- Year: {info.year}
-                      </p>
+                    <>
+                      <div>
+                        <h1 id="my-element" className="card-info-title">
+                          {info.name}
+                        </h1>
+                      </div>
+                      <div className="card-info-text">
+                        <p className="card-info-version">
+                          Version: {info.v[0]}
+                        </p>
+                        <p className="card-info-year">Year: {info.year}</p>
+                      </div>
                       <div onClick={downloadButton} className="downloadButton">
                         download now!
                       </div>
-                    </div>
+                      <div
+                        onClick={downloadButton}
+                        className="otherVersionsButton"
+                      >
+                        other versions
+                      </div>
+                    </>
                   )}
                 </div>
               </div>

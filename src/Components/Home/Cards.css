@@ -80,7 +80,7 @@
 }
 .card-info-container {
   position: absolute;
-   border-bottom-left-radius: 15px 255px;
+  border-bottom-left-radius: 15px 255px;
   border-bottom-right-radius: 225px 15px;
   border-top-left-radius: 255px 15px;
   border-top-right-radius: 15px 225px;
@@ -102,7 +102,6 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   color: aliceblue;
   font-size: larger;
   background-color: #000000;
@@ -110,6 +109,7 @@
   transition: transform 0.7s ease;
   pointer-events: none;
   z-index: 2;
+  padding: 0;
 }
 .card.selected .card-info {
   opacity: 1;
@@ -123,13 +123,16 @@
 }
 
 .downloadButton {
+  position: absolute;
   display: inline-flex;
   align-self: center;
+  bottom: 5px;
+  left: 10px;
   border: #fff solid 2px;
-  border-top-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 15px 225px;
+  border-top-right-radius: 15px 225px;
+  border-bottom-right-radius: 225px 5px;
+  border-top-left-radius: 225px 15px;
   padding: 10px 20px;
   background: linear-gradient(45deg, #691515ab, #0a1944c7);
   color: #fff;
@@ -137,7 +140,6 @@
   transition: background-color 0.3s ease;
   font-weight: bold;
 }
-
 .downloadButton:hover {
   background: linear-gradient(45deg, #ff6e40, #ffa726);
 }
@@ -145,12 +147,52 @@
 .downloadButton:active {
   background: linear-gradient(45deg, #e64a19, #f57c00);
 }
-
-.downloadButton .icon {
-  margin-right: 5px;
-  font-size: 18px;
+.otherVersionsButton {
+  position: absolute;
+  display: inline-flex;
+  align-self: center;
+  bottom: 5px;
+  right: 10px;
+  border: #fff solid 2px;
+  border-bottom-left-radius: 15px 225px;
+  border-top-right-radius: 15px 225px;
+  border-bottom-right-radius: 225px 25px;
+  border-top-left-radius: 225px 15px;
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #691515ab, #0a1944c7);
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+.otherVersionsButton:hover {
+  background: linear-gradient(45deg, #c73131, #d85a5a);
 }
 
+.otherVersionsButton:active {
+  background: linear-gradient(45deg, #e64a19, #f57c00);
+}
+.card-info-text{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  bottom: 0px;
+}
+.card-info-title {
+  position: relative;
+  padding: 0;
+  padding-top: 5px;
+  margin: 0;
+}
+.card-info-version {
+  padding: 15px;
+  margin: 0;
+}
+.card-info-year {
+  padding: 15px;
+  margin: 0;
+}
 /* ------------------------ */
 
 @media (max-width: 1050px) {
@@ -219,8 +261,8 @@
     overflow: hidden;
     flex: 0 0 40%;
   }
-  .card-info{
-    justify-content:none;
+  .card-info {
+    justify-content: none;
   }
 }
 
