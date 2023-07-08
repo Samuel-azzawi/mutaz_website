@@ -151,7 +151,7 @@
   position: absolute;
   display: inline-flex;
   align-self: center;
-  bottom: 5px;
+  bottom: 7px;
   border: #fff solid 2px;
   border-bottom-left-radius: 15px 255px;
   border-bottom-right-radius: 225px 15px;
@@ -172,24 +172,26 @@
 .otherVersionsButton:active {
   background: linear-gradient(45deg, #e64a19, #f57c00);
 }
-.card-info-text{
+.card-info-text {
   position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   bottom: 0px;
+  font-size: 16px;
 }
 .card-info-title {
   position: relative;
   padding: 10px;
+  padding-top: 20px;
   margin: 0;
 }
 .card-info-version {
-  padding: 15px;
+  padding: 10px;
   margin: 0;
 }
 .card-info-year {
-  padding: 15px;
+  padding: 10px;
   margin: 0;
 }
 /* ------------------------ */
@@ -264,41 +266,50 @@
     justify-content: none;
   }
   .otherVersionsButton {
-  position: absolute;
-  display: inline-flex;
-  align-self: center;
-  bottom: 5px;
-  right: 10px;
-  border: #fff solid 2px;
-  border-bottom-left-radius: 15px 225px;
-  border-top-right-radius: 15px 225px;
-  border-bottom-right-radius: 225px 25px;
-  border-top-left-radius: 225px 15px;
-  padding: 10px 20px;
-  background: linear-gradient(45deg, #691515ab, #0a1944c7);
-  color: #fff;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  font-weight: bold;
-}
-.downloadButton {
-  position: absolute;
-  display: inline-flex;
-  align-self: center;
-  bottom: 5px;
-  left: 10px;
-  border: #fff solid 2px;
-  border-bottom-left-radius: 15px 225px;
-  border-top-right-radius: 15px 225px;
-  border-bottom-right-radius: 225px 5px;
-  border-top-left-radius: 225px 15px;
-  padding: 10px 20px;
-  background: linear-gradient(45deg, #691515ab, #0a1944c7);
-  color: #fff;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  font-weight: bold;
-}
+    position: absolute;
+    display: inline-flex;
+    align-self: center;
+    bottom: 6.5px;
+    right: 5px;
+    border: #fff solid 2px;
+    border-bottom-left-radius: 15px 225px;
+    border-top-right-radius: 15px 225px;
+    border-bottom-right-radius: 225px 25px;
+    border-top-left-radius: 225px 15px;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #691515ab, #0a1944c7);
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+  }
+  .downloadButton {
+    position: absolute;
+    display: inline-flex;
+    align-self: center;
+    bottom: 5px;
+    left: 10px;
+    border: #fff solid 2px;
+    border-bottom-left-radius: 15px 225px;
+    border-top-right-radius: 15px 225px;
+    border-bottom-right-radius: 225px 5px;
+    border-top-left-radius: 225px 15px;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #691515ab, #0a1944c7);
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+  }
+  .card-info-text {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    bottom: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 @media screen and (max-width: 360px) {
