@@ -9,6 +9,13 @@ function Search() {
   const [storedValue, setStoredValue] = useContext(UserContext)[1];
   const [suggestions, setSuggestions] = useContext(UserContext)[2];
   const suggestionsRef = useRef(null);
+  const inputRef = useRef(null);
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      inputRef.current.blur();
+    }
+  };
 
   useOutsideClick(suggestionsRef, () => {
     setSuggestions([]);
@@ -50,6 +57,8 @@ function Search() {
     <div className="searchBoxContainer">
       <form className="form-wrapper" onSubmit={handleFormSubmit}>
         <input
+          ref={inputRef}
+          onKeyPress={handleKeyPress}
           className="search"
           type="text"
           name=""
