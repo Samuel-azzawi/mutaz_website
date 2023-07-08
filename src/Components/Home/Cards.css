@@ -6,9 +6,11 @@
   justify-content: center;
   gap: 10px;
   margin: auto;
+  position: relative;
 }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -42,7 +44,6 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   place-self: center;
-  overflow: hidden;
 }
 
 .card:hover {
@@ -76,6 +77,77 @@
   overflow: hidden;
   flex: 0 0 30%;
 }
+.card-info-container {
+  position: absolute;
+   border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.card-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: aliceblue;
+  font-size: larger;
+  background-color: #000000;
+  overflow: hidden;
+  transition: transform 0.7s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+.card.selected .card-info {
+  opacity: 1;
+  pointer-events: auto;
+}
+.card-info.show {
+  transform: translateY(0);
+}
+.card-info.hide {
+  transform: translateY(100%);
+}
+
+.downloadButton {
+  display: inline-flex;
+  align-self: center;
+  border: #fff solid 2px;
+  border-top-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #691515ab, #0a1944c7);
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.downloadButton:hover {
+  background: linear-gradient(45deg, #ff6e40, #ffa726);
+}
+
+.downloadButton:active {
+  background: linear-gradient(45deg, #e64a19, #f57c00);
+}
+
+.downloadButton .icon {
+  margin-right: 5px;
+  font-size: 18px;
+}
 
 /* ------------------------ */
 
@@ -93,7 +165,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 980px) {
   .cards_container {
     max-width: 80%;
     grid-template-columns: repeat(3, 35%);
@@ -116,7 +188,6 @@
     max-width: 80%;
     grid-template-columns: repeat(1, 100%);
     margin-top: 30px;
-    margin-bottom: 30px;
   }
   .card {
     padding-left: 0;
@@ -127,26 +198,25 @@
     align-items: center;
   }
   .card-image {
-  width: 100%;
-  place-self: center;
-  flex: 0 0 60%;
-  object-fit: contain;
-}
+    height: 100%;
+    place-self: center;
+    flex: 0 0 60%;
+  }
 
-.images {
-  width: 80%;
-  height: 80%;
-  object-fit: contain;
-}
-.card-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  flex: 0 0 40%;
-}
+  .images {
+    width: 95%;
+    height: 95%;
+    object-fit: contain;
+  }
+  .card-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    flex: 0 0 40%;
+  }
 }
 
 @media screen and (max-width: 360px) {

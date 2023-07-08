@@ -1,84 +1,62 @@
-.menu-container {
-  display: flex;
-  justify-content: flex-end; /* Aligns the menu to the right edge */
-  position: absolute;
-  top: 98px;
-  right: 0;
-  z-index: 9999;
+import "./Cards.css";
+import { CardContent } from "./CardContent";
+import CardImage from "./CardImage";
+import fitty from "fitty";
+import { useEffect, useState } from "react";
+
+function Cards() {
+  const [info, setInfo] = useState(null);
+  const [isHiding, setIsHiding] = useState(false);
+  const cards = CardContent;
+
+  const handleClick = (title) => {
+    if (info && info.title === title) {
+      setTimeout(() => {
+        setInfo(null);
+        setIsHiding(false);
+      }, 200); // Delay to match the animation duration
+    } else setInfo(cards.find((card) => card.title === title));
+  };
+
+  useEffect(() => {
+    fitty("#my-element", {
+      minSize: 12,
+      maxSize: 18,
+    });
+  }, []);
+
+  return (
+    <div className="cards_container">
+      {cards.map((card, index) => {
+        const imageName = `${card.title}`;
+        const isSelected = info && info.title === card.title;
+        return (
+          <button
+            key={index}
+            className={`card ${isSelected ? "selected" : ""}`}
+            onClick={() => handleClick(card.title)}
+          >
+            <div className="card-image">
+              <CardImage imageName={imageName} />
+            </div>
+            <div className="card-content">
+              <p id="my-element" className="text">
+                {card.name}
+              </p>
+              <div className={`card-info ${isSelected ? "show" : "hide"}`}>
+                {isSelected && !isHiding && (
+                  <>
+                    <p>{info.name}</p>
+                    <p>{info.v[0]}</p>
+                  </>
+                )}
+              </div>
+            </div>
+          </button>
+        );
+      })}
+    </div>
+  );
 }
 
-.hamburger-menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-}
-
-.hamburger-icon {
-  display: inline-block;
-  cursor: pointer;
-}
-
-.line {
-  display: block;
-  width: 35px;
-  height: 4px;
-  background-color: white;
-  margin-bottom: 5px;
-  transition: transform 0.5s ease-in-out;
-}
-
-.line.line1 {
-  transform: rotate(0);
-}
-
-.line.line2 {
-  opacity: 1;
-}
-
-.line.line3 {
-  transform: rotate(0);
-}
-
-.hamburger-menu.open .line.line1 {
-  transform: rotate(45deg) translate(4px, 4px);
-}
-
-.hamburger-menu.open .line.line2 {
-  opacity: 0;
-}
-
-.hamburger-menu.open .line.line3 {
-  transform: rotate(-45deg) translate(4px, -4px);
-}
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  overflow: hidden;
-}
-.menu-items {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(45deg, #004d80b2, #001f3f);
-  margin: 0;
-  padding: 0;
-  z-index: 3;
-  transition: transform 0.7s ease;
-}
-.menu-items.close {
-  transform: translateX(100%);
-}
-.menu-items.open {
-  transform: translateX(0);
-}
-
-.big-screen-items {
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-  right: 0;
-  gap: 4rem;
-}
+export default Cards;
