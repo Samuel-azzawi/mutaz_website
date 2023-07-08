@@ -22,8 +22,8 @@ function Search() {
   });
 
   const handleSuggestions = (card) => {
-    setStoredValue(card.title);
-    setSearchValue(card.name);
+    setStoredValue([card]);
+    setSearchValue("");
     setTimeout(() => {
       setSuggestions([]);
     }, 1);

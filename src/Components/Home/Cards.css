@@ -201,6 +201,13 @@
   font-size: 50px;
   z-index: 4;
 }
+
+.no-match-found{
+  z-index: -1;
+  position: absolute;
+  justify-self: center;
+  align-self: center;
+}
 /* ------------------------ */
 
 @media (max-width: 1050px) {

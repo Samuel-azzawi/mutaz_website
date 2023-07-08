@@ -15,19 +15,13 @@ function Cards() {
   const [storedValue] = useContext(UserContext)[1];
   const [suggestions] = useContext(UserContext)[2];
 
+  
   useEffect(() => {
-    if (storedValue.length > 0) {
+    if (Array.isArray(storedValue)) {
+      console.log(storedValue);
       setCards(storedValue);
     }
   }, [storedValue]);
-
-  const foundObject = cards.find((item) => item.title === storedValue);
-  let foundObjectImageName;
-  let foundObjectIsSelected;
-  if (foundObject) {
-    foundObjectImageName = foundObject.title;
-    foundObjectIsSelected = info && info.title === foundObject.title;
-  }
 
   const handleClick = (title) => {
     if (info.title !== title) {
@@ -63,58 +57,9 @@ function Cards() {
 
   return (
     <div className="cards_container" ref={menuRef}>
-      {foundObject ? (
-        <button
-          className={`card ${foundObjectIsSelected ? "selected" : ""}`}
-          onClick={() => handleClick(foundObject.title)}
-        >
-          <div className="card-image">
-            <CardImage imageName={foundObjectImageName} />
-          </div>
-          <div className="card-content">
-            <p id="my-element" className="text">
-              {foundObject.name}
-            </p>
-            <div className="card-info-container">
-              <div
-                className={`card-info ${
-                  foundObjectIsSelected ? "show" : "hide"
-                }`}
-              >
-                {foundObjectIsSelected && !isHiding && (
-                  <>
-                    <div>
-                      <FaCaretDown
-                        className="card-info-closing-button"
-                        onClick={closingCardInfo}
-                      />
-                      <h1 id="my-element" className="card-info-title">
-                        {info.name}
-                      </h1>
-                    </div>
-                    <div className="card-info-text">
-                      <p className="card-info-version">Version: {info.v[0]}</p>
-                      <p className="card-info-year">Year: {info.year}</p>
-                    </div>
-                    <div
-                      onClick={() => downloadButton(info.link[0])}
-                      className="downloadButton"
-                    >
-                      download now!
-                    </div>
-                    <div
-                      onClick={() => downloadButton(info.link[0])}
-                      className="otherVersionsButton"
-                    >
-                      other versions
-                    </div>
-                  </>
-                )}
-              </div>
-            </div>
-          </div>
-        </button>
-      ) : (
+      {Array.isArray(storedValue) && storedValue.length === 0 && (
+        <h1 className="no-match-found">no match found</h1>
+      )}
         <>
           {cards.map((card, index) => {
             const imageName = `${card.title}`;
@@ -174,7 +119,6 @@ function Cards() {
             );
           })}
         </>
-      )}
     </div>
   );
 }
