@@ -6,8 +6,16 @@ import Home from "./Components/Home/Home";
 
 function App() {
   const [language, setLanguage] = useState("عربي");
+  const [storedValue, setStoredValue] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
   return (
-    <UserContext.Provider value={{ language, setLanguage }}>
+    <UserContext.Provider
+      value={[
+        [language, setLanguage],
+        [storedValue, setStoredValue],
+        [suggestions, setSuggestions],
+      ]}
+    >
       <div className="App">
         <BrowserRouter>
           <Routes>
