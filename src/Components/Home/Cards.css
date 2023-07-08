@@ -126,19 +126,19 @@
   position: absolute;
   display: inline-flex;
   align-self: center;
-  bottom: 5px;
-  left: 10px;
+  bottom: 60px;
   border: #fff solid 2px;
-  border-bottom-left-radius: 15px 225px;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
   border-top-right-radius: 15px 225px;
-  border-bottom-right-radius: 225px 5px;
-  border-top-left-radius: 225px 15px;
   padding: 10px 20px;
   background: linear-gradient(45deg, #691515ab, #0a1944c7);
   color: #fff;
   text-decoration: none;
   transition: background-color 0.3s ease;
   font-weight: bold;
+  width: 117px;
 }
 .downloadButton:hover {
   background: linear-gradient(45deg, #ff6e40, #ffa726);
@@ -152,18 +152,18 @@
   display: inline-flex;
   align-self: center;
   bottom: 5px;
-  right: 10px;
   border: #fff solid 2px;
-  border-bottom-left-radius: 15px 225px;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
   border-top-right-radius: 15px 225px;
-  border-bottom-right-radius: 225px 25px;
-  border-top-left-radius: 225px 15px;
   padding: 10px 20px;
   background: linear-gradient(45deg, #691515ab, #0a1944c7);
   color: #fff;
   text-decoration: none;
   transition: background-color 0.3s ease;
   font-weight: bold;
+  width: 117px;
 }
 .otherVersionsButton:hover {
   background: linear-gradient(45deg, #c73131, #d85a5a);
@@ -181,8 +181,7 @@
 }
 .card-info-title {
   position: relative;
-  padding: 0;
-  padding-top: 5px;
+  padding: 10px;
   margin: 0;
 }
 .card-info-version {
@@ -264,6 +263,42 @@
   .card-info {
     justify-content: none;
   }
+  .otherVersionsButton {
+  position: absolute;
+  display: inline-flex;
+  align-self: center;
+  bottom: 5px;
+  right: 10px;
+  border: #fff solid 2px;
+  border-bottom-left-radius: 15px 225px;
+  border-top-right-radius: 15px 225px;
+  border-bottom-right-radius: 225px 25px;
+  border-top-left-radius: 225px 15px;
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #691515ab, #0a1944c7);
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+.downloadButton {
+  position: absolute;
+  display: inline-flex;
+  align-self: center;
+  bottom: 5px;
+  left: 10px;
+  border: #fff solid 2px;
+  border-bottom-left-radius: 15px 225px;
+  border-top-right-radius: 15px 225px;
+  border-bottom-right-radius: 225px 5px;
+  border-top-left-radius: 225px 15px;
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #691515ab, #0a1944c7);
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
 }
 
 @media screen and (max-width: 360px) {
