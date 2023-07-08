@@ -18,8 +18,8 @@ function Cards() {
     }
   };
 
-  const downloadButton = () => {
-    window.open(info.link[0], "_blank");
+  const downloadButton = (link) => {
+    window.open(link, "_blank");
   };
   const closingCardInfo = () => {
     setInfo({});
@@ -80,11 +80,14 @@ function Cards() {
                         </p>
                         <p className="card-info-year">Year: {info.year}</p>
                       </div>
-                      <div onClick={downloadButton} className="downloadButton">
+                      <div
+                        onClick={() => downloadButton(info.link[0])}
+                        className="downloadButton"
+                      >
                         download now!
                       </div>
                       <div
-                        onClick={downloadButton}
+                        onClick={() => downloadButton(info.link[0])}
                         className="otherVersionsButton"
                       >
                         other versions
