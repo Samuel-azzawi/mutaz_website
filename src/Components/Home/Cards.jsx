@@ -10,14 +10,18 @@ import UserContext from "../UserContext/UserContext";
 function Cards() {
   const [info, setInfo] = useState({});
   const [isHiding, setIsHiding] = useState(false);
-  const cards = CardContent;
+  const [cards, setCards] = useState(CardContent);
   const menuRef = useRef(null);
   const [storedValue] = useContext(UserContext)[1];
   const [suggestions] = useContext(UserContext)[2];
-  console.log(suggestions, storedValue);
+
+  useEffect(() => {
+    if (storedValue.length > 0) {
+      setCards(storedValue);
+    }
+  }, [storedValue]);
 
   const foundObject = cards.find((item) => item.title === storedValue);
-  console.log(foundObject);
   let foundObjectImageName;
   let foundObjectIsSelected;
   if (foundObject) {
