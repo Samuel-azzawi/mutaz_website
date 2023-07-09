@@ -39,8 +39,9 @@ function Search() {
   };
 
   const handleSearchButtonClick = () => {
+    if(searchValue){
     setStoredValue(suggestions);
-    setSearchValue("");
+    setSearchValue("");}
   };
 
   const reset = () => {
