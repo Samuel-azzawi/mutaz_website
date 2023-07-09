@@ -207,7 +207,7 @@
   position: relative;
   display: flex;
   width: 100%;
-  height: calc(100vh - 300px);
+  height: calc(100vh - 380px);
   justify-content: center;
   align-items: center;
 }
@@ -236,7 +236,7 @@
     position: relative;
     display: flex;
     width: 100%;
-    height: calc(100vh - 338px);
+    height: calc(100vh - 390px);
     justify-content: center;
     align-items: center;
   }
