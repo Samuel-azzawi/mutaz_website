@@ -121,26 +121,18 @@ ul.suggestions li:hover {
   background-color: #ffe3cb;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
   .form-wrapper {
-    width: 80%;
+    width: 90%;
   }
   .form-wrapper .search {
-    width: 63%;
+    width: 65%;
   }
   ul.suggestions {
-    width: 80%;
+    width: 94%;
+  }
+  .form-wrapper #submit{
+    width: 25%;
   }
 }
 
-@media screen and (max-width: 500px) {
-  .form-wrapper .search {
-    width: 56.5%;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .form-wrapper .search {
-    width: 45%;
-  }
-}

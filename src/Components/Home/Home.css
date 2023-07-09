@@ -76,7 +76,6 @@
   transform: translateZ(0);
   transition: clip-path 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
     -webkit-clip-path 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-  width: 100%;
 }
 
 .button-48:hover:before {

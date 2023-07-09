@@ -76,9 +76,11 @@ function Search() {
           value={searchValue}
           onChange={handleInputChange}
         />
-        <button id="submit" onClick={handleSearchButtonClick}>
-          GO
-        </button>
+        <div className="search-button">
+          <button id="submit" onClick={handleSearchButtonClick}>
+            GO
+          </button>
+        </div>
       </form>
       {suggestions.length > 0 && (
         <ul className="suggestions" ref={suggestionsRef}>
