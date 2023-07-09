@@ -3,17 +3,21 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import UserContext from "./Components/UserContext/UserContext";
 import Home from "./Components/Home/Home";
+import { CardContent } from "./Components/Home/CardContent";
 
 function App() {
   const [language, setLanguage] = useState("عربي");
   const [storedValue, setStoredValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [cards, setCards] = useState(CardContent);
+
   return (
     <UserContext.Provider
       value={[
         [language, setLanguage],
         [storedValue, setStoredValue],
         [suggestions, setSuggestions],
+        [cards, setCards],
       ]}
     >
       <div className="App">
@@ -27,9 +31,14 @@ function App() {
                 </div>
               }
             />
-            <Route path="/about" element={<div></div>} />
-            <Route path="/contact-us" element={<div></div>} />
-            <Route path="/privacy-policy" element={<div></div>} />
+            <Route
+              path="/search"
+              element={
+                <div>
+                  <Home />
+                </div>
+              }
+            />
           </Routes>
         </BrowserRouter>
       </div>

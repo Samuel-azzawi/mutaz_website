@@ -4,6 +4,7 @@ import "./Home.css";
 import { CardContent } from "./CardContent";
 import useOutsideClick from "./useOutsideClick";
 import UserContext from "../UserContext/UserContext";
+import { useNavigate } from "react-router";
 
 function Search() {
   const [searchValue, setSearchValue] = useState("");
@@ -11,6 +12,9 @@ function Search() {
   const [suggestions, setSuggestions] = useContext(UserContext)[2];
   const suggestionsRef = useRef(null);
   const inputRef = useRef(null);
+
+  const navigate = useNavigate();
+  const url = window.location.href;
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
@@ -25,6 +29,7 @@ function Search() {
   const handleSuggestions = (card) => {
     setStoredValue([card]);
     setSearchValue("");
+    navigate("/search");
     setTimeout(() => {
       setSuggestions([]);
     }, 1);
@@ -39,13 +44,18 @@ function Search() {
   };
 
   const handleSearchButtonClick = () => {
-    if(searchValue){
-    setStoredValue(suggestions);
-    setSearchValue("");}
+    if (searchValue) {
+      setStoredValue(suggestions);
+      setSearchValue("");
+      navigate("/search");
+    }
   };
 
   const reset = () => {
     setStoredValue("");
+    if (url.includes("/search")) {
+      navigate("/");
+    }
   };
 
   useEffect(() => {
@@ -60,10 +70,34 @@ function Search() {
   }, [searchValue]);
 
   useEffect(() => {
+    const handleBeforeUnload = () => {
+      localStorage.setItem("shouldNavigateToHome", "true");
+    };
+
+    const handleLoad = () => {
+      const shouldNavigate = localStorage.getItem("shouldNavigateToHome");
+
+      if (shouldNavigate) {
+        localStorage.removeItem("shouldNavigateToHome");
+        navigate("/");
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    window.addEventListener("load", handleLoad);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+      window.removeEventListener("load", handleLoad);
+    };
+  }, [navigate]);
+
+  useEffect(() => {
     const suggestionsElement = document.querySelector(".suggestions");
-    if(storedValue && searchValue.length > 0 && suggestions.length > 0)suggestionsElement.style.top = "86px"
-  }, [storedValue, searchValue, suggestions])
-  
+    if (storedValue && searchValue.length > 0 && suggestions.length > 0)
+      suggestionsElement.style.top = "86px";
+  }, [storedValue, searchValue, suggestions]);
+
   return (
     <div className="searchBoxContainer">
       <form className="form-wrapper" onSubmit={handleFormSubmit}>
@@ -97,9 +131,9 @@ function Search() {
           ))}
         </ul>
       )}
-      {storedValue && (
+      {storedValue && url.includes("/search") && (
         <button className="reset-button button-89" onClick={reset}>
-          reset
+          reset search
         </button>
       )}
     </div>

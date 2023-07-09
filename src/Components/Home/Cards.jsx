@@ -6,23 +6,15 @@ import fitty from "fitty";
 import { useContext, useEffect, useRef, useState } from "react";
 import useOutsideClick from "./useOutsideClick";
 import UserContext from "../UserContext/UserContext";
+import { useNavigate } from "react-router";
 
 function Cards() {
   const [info, setInfo] = useState({});
   const [isHiding, setIsHiding] = useState(false);
-  const [cards, setCards] = useState(CardContent);
-
+  const [cards, setCards] = useContext(UserContext)[3];
   const [storedValue] = useContext(UserContext)[1];
-
   const menuRef = useRef(null);
 
-  useEffect(() => {
-    if (Array.isArray(storedValue)) {
-      setCards(storedValue);
-    } else {
-      setCards(CardContent);
-    }
-  }, [storedValue]);
 
   const handleClick = (title) => {
     if (info.title !== title) {
@@ -40,12 +32,6 @@ function Cards() {
       setIsHiding(false);
     }, 100);
   };
-  useEffect(() => {
-    fitty("#my-element", {
-      minSize: 12,
-      maxSize: 18,
-    });
-  }, [info]);
 
   const handleOutsideClick = () => {
     setInfo({});
@@ -53,9 +39,22 @@ function Cards() {
       setIsHiding(false);
     }, 100);
   };
-
   useOutsideClick(menuRef, handleOutsideClick);
 
+  useEffect(() => {
+    if (Array.isArray(storedValue)) {
+      setCards(storedValue);
+    } else {
+      setCards(CardContent);
+    }
+  }, [storedValue]);
+
+  useEffect(() => {
+    fitty("#my-element", {
+      minSize: 12,
+      maxSize: 18,
+    });
+  }, [info]);
   return (
     <>
       {Array.isArray(storedValue) && storedValue.length === 0 && (
