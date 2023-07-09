@@ -203,8 +203,14 @@
 }
 
 .no-match-found{
-  z-index: -1;
-  position: absolute;
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 65.5vh;
+  justify-content: center;
+  align-items: center;
+}
+.no-match-found h1{
   justify-self: center;
   align-self: center;
 }

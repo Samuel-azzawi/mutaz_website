@@ -11,14 +11,13 @@ function Cards() {
   const [info, setInfo] = useState({});
   const [isHiding, setIsHiding] = useState(false);
   const [cards, setCards] = useState(CardContent);
-  const menuRef = useRef(null);
-  const [storedValue] = useContext(UserContext)[1];
-  const [suggestions] = useContext(UserContext)[2];
 
-  
+  const [storedValue] = useContext(UserContext)[1];
+
+  const menuRef = useRef(null);
+
   useEffect(() => {
     if (Array.isArray(storedValue)) {
-      console.log(storedValue);
       setCards(storedValue);
     }
   }, [storedValue]);
@@ -56,10 +55,13 @@ function Cards() {
   useOutsideClick(menuRef, handleOutsideClick);
 
   return (
-    <div className="cards_container" ref={menuRef}>
+    <>
       {Array.isArray(storedValue) && storedValue.length === 0 && (
-        <h1 className="no-match-found">no match found</h1>
+        <div className="no-match-found">
+          <h1>no match found</h1>
+        </div>
       )}
+      <div className="cards_container" ref={menuRef}>
         <>
           {cards.map((card, index) => {
             const imageName = `${card.title}`;
@@ -119,7 +121,8 @@ function Cards() {
             );
           })}
         </>
-    </div>
+      </div>
+    </>
   );
 }
 
