@@ -1,5 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import "./Search.css";
+import "./Home.css";
 import { CardContent } from "./CardContent";
 import useOutsideClick from "./useOutsideClick";
 import UserContext from "../UserContext/UserContext";
@@ -40,6 +41,10 @@ function Search() {
   const handleSearchButtonClick = () => {
     setStoredValue(suggestions);
     setSearchValue("");
+  };
+
+  const reset = () => {
+    setStoredValue("");
   };
 
   useEffect(() => {
@@ -83,6 +88,11 @@ function Search() {
             </li>
           ))}
         </ul>
+      )}
+      {storedValue && (
+        <button className="reset-button button-89" onClick={reset}>
+          reset
+        </button>
       )}
     </div>
   );

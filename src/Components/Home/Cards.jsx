@@ -19,6 +19,8 @@ function Cards() {
   useEffect(() => {
     if (Array.isArray(storedValue)) {
       setCards(storedValue);
+    } else {
+      setCards(CardContent);
     }
   }, [storedValue]);
 

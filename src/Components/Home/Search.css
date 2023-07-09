@@ -1,8 +1,13 @@
 .searchBoxContainer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   position: relative;
+}
+.reset-button{
+  position: relative;
+  margin-top: 20px;
 }
 
 .form-wrapper {
@@ -16,9 +21,10 @@
   border-style: solid;
   border-width: 1px;
   border-radius: 10px;
-  box-shadow: 0 3px 3px rgba(255, 255, 255, 0.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
-  margin: 20px auto;
+  box-shadow: 0 3px 3px rgba(255, 255, 255, 0.1), 0 3px 0 #bbb, 0 4px 0 #aaa,
+    0 5px 5px #444;
   overflow: hidden;
+  margin-top: 20px;
   padding: 8px;
   width: 450px;
 }
