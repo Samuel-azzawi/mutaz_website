@@ -202,15 +202,15 @@
   z-index: 4;
 }
 
-.no-match-found{
+.no-match-found {
   position: relative;
   display: flex;
   width: 100%;
-  height: 65.5vh;
+  height: calc(100vh - 300px);
   justify-content: center;
   align-items: center;
 }
-.no-match-found h1{
+.no-match-found h1 {
   justify-self: center;
   align-self: center;
 }
@@ -231,6 +231,14 @@
 }
 
 @media screen and (max-width: 980px) {
+  .no-match-found {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 338px);
+    justify-content: center;
+    align-items: center;
+  }
   .cards_container {
     max-width: 80%;
     grid-template-columns: repeat(3, 35%);
