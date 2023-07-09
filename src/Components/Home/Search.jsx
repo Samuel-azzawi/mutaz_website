@@ -58,6 +58,11 @@ function Search() {
     }
   }, [searchValue]);
 
+  useEffect(() => {
+    const suggestionsElement = document.querySelector(".suggestions");
+    if(storedValue && searchValue.length > 0 && suggestions.length > 0)suggestionsElement.style.top = "86px"
+  }, [storedValue, searchValue, suggestions])
+  
   return (
     <div className="searchBoxContainer">
       <form className="form-wrapper" onSubmit={handleFormSubmit}>
