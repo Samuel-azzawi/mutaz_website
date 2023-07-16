@@ -5,6 +5,7 @@ const CardContent = [
     year: "2023",
     v: ["24.6.0.573"],
     link: ["https://www.google.com"],
+    os: "windows",
   },
   {
     title: "ai",
@@ -12,6 +13,7 @@ const CardContent = [
     year: "2023",
     v: ["27.6.1.210"],
     link: ["https://www.google.com"],
+    os: "windows",
   },
   {
     title: "ae",
@@ -19,6 +21,7 @@ const CardContent = [
     year: "2023",
     v: ["23.5.0.52"],
     link: ["https://www.google.com"],
+    os: "windows",
   },
   {
     title: "xd",
@@ -26,6 +29,7 @@ const CardContent = [
     year: "2023",
     v: ["57.0.12"],
     link: ["https://www.google.com"],
+    os: "windows",
   },
   {
     title: "pr",
@@ -33,6 +37,7 @@ const CardContent = [
     year: "2023",
     v: ["23.5.0.56"],
     link: ["https://www.google.com"],
+    os: "windows",
   },
   {
     title: "wtf",
@@ -40,6 +45,7 @@ const CardContent = [
     year: "2023",
     v: ["23.5.0.56"],
     link: ["https://www.google.com"],
+    os: "windows",
   },
   {
     title: "id",
@@ -47,6 +53,7 @@ const CardContent = [
     year: "2023",
     v: ["18.3.0.50"],
     link: ["https://www.google.com"],
+    os: "windows",
   },
   {
     title: "me",
@@ -54,6 +61,7 @@ const CardContent = [
     year: "2023",
     v: ["23.5.0.51"],
     link: ["https://www.google.com"],
+    os: "windows",
   },
   {
     title: "au",
@@ -61,6 +69,7 @@ const CardContent = [
     year: "2023",
     v: ["23.5.0.48"],
     link: ["https://www.google.com"],
+    os: "mac",
   },
   {
     title: "an",
@@ -68,6 +77,7 @@ const CardContent = [
     year: "2023",
     v: ["23.0.2.103"],
     link: ["https://www.google.com"],
+    os: "mac",
   },
   {
     title: "off",
@@ -75,6 +85,7 @@ const CardContent = [
     year: "2021",
     v: ["ProfessionalPlus"],
     link: ["https://www.google.com"],
+    os: "mac",
   },
   {
     title: "win10",
@@ -82,6 +93,7 @@ const CardContent = [
     year: "2023",
     v: ["19045.2965"],
     link: ["https://www.google.com"],
+    os: "android",
   },
 ];
 

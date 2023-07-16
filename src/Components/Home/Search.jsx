@@ -4,8 +4,7 @@ import "./Home.css";
 import { CardContent } from "./CardContent";
 import useOutsideClick from "./useOutsideClick";
 import UserContext from "../UserContext/UserContext";
-import { useNavigate } from "react-router";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router";
 import { useSearchParams } from "react-router-dom";
 
 function Search() {
@@ -14,10 +13,12 @@ function Search() {
   const [suggestions, setSuggestions] = useContext(UserContext)[2];
   const [cards, setCards] = useContext(UserContext)[3];
   const [search, setSearch] = useContext(UserContext)[4];
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const suggestionsRef = useRef(null);
   const inputRef = useRef(null);
   const searchQuery = searchParams.get("query");
+  const location = useLocation().pathname;
+  const [os, setOs] = useState("");
 
   const navigate = useNavigate();
 
@@ -36,7 +37,9 @@ function Search() {
     setSearchValue("");
     setTimeout(() => {
       setSuggestions([]);
-      navigate("/search");
+      if (!location.includes("search")) {
+        os ? navigate(`${location}/search`) : navigate("/search");
+      }
     }, 1);
   };
 
@@ -48,12 +51,14 @@ function Search() {
     setSearchValue(event.target.value);
   };
 
-  const handleSearchButtonClick = () => {
+  const handleSearchButtonClick = (event) => {
+    event.preventDefault();
     if (searchValue) {
-      navigate("/search");
+      if (!location.includes("search")) {
+        os ? navigate(`${location}/search`) : navigate("/search");
+      }
       setStoredValue(suggestions);
       setSearch(searchValue);
-      console.log(searchValue);
       setSearchValue("");
     }
   };
@@ -63,17 +68,45 @@ function Search() {
     setStoredValue("");
     navigate("/");
   };
-
+  //check if path includes os
   useEffect(() => {
-    if (searchValue.length > 0) {
-      const filteredSuggestions = CardContent.filter((card) =>
-        card.name.toLowerCase().includes(searchValue.toLowerCase())
-      );
-      setSuggestions(filteredSuggestions);
-    } else {
-      setSuggestions([]);
+    if (location.includes("mac")) {
+      setOs("mac");
     }
-  }, [searchValue]);
+
+    if (location.includes("windows")) {
+      setOs("windows");
+    }
+
+    if (location.includes("android")) {
+      setOs("android");
+    }
+  }, [setOs, location]);
+
+  //filter suggestions
+  useEffect(() => {
+    if (os) {
+      if (searchValue.length > 0) {
+        const filteredSuggestions = CardContent.filter(
+          (card) =>
+            card.name.toLowerCase().includes(searchValue.toLowerCase()) &&
+            card.os === os
+        );
+        setSuggestions(filteredSuggestions);
+      } else {
+        setSuggestions([]);
+      }
+    } else {
+      if (searchValue.length > 0) {
+        const filteredSuggestions = CardContent.filter((card) =>
+          card.name.toLowerCase().includes(searchValue.toLowerCase())
+        );
+        setSuggestions(filteredSuggestions);
+      } else {
+        setSuggestions([]);
+      }
+    }
+  }, [searchValue, os, setSuggestions]);
 
   useEffect(() => {
     const suggestionsElement = document.querySelector(".suggestions");

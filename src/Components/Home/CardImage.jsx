@@ -1,6 +1,6 @@
 import React from "react";
 import NoImage from "../Files/logos/No-Image.png";
-import "./Cards.css";
+import "./CardsManager.css";
 
 function CardImage({ imageName }) {
   let fullName = "";
