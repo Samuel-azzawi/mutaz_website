@@ -2,11 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import UserContext from "./Components/UserContext/UserContext";
-import Home from "./Components/Home/Home";
 import { CardContent } from "./Components/Home/CardContent";
-import Windows from "./Components/Home/os/Windows";
-import Mac from "./Components/Home/os/Mac";
-import Android from "./Components/Home/os/Android";
 import FilterCards from "./Components/Home/FilterCards";
 
 function App() {
@@ -31,10 +27,10 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/windows" element={<Windows />} />
-            <Route path="/mac" element={<Mac />} />
-            <Route path="/android" element={<Android />} />
+            <Route path="/" element={<FilterCards />} />
+            <Route path="/windows" element={<FilterCards />} />
+            <Route path="/mac" element={<FilterCards />} />
+            <Route path="/android" element={<FilterCards />} />
             <Route path="/search" element={<FilterCards />} />
             <Route path="/windows/search" element={<FilterCards />} />
             <Route path="/mac/search" element={<FilterCards />} />

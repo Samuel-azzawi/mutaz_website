@@ -1,4 +1,4 @@
-import "./CardsManager.css";
+import "./FilterCards.css";
 import { FaCaretDown } from "react-icons/fa";
 import { CardContent } from "./CardContent";
 import CardImage from "./CardImage";
@@ -22,7 +22,7 @@ function FilterCards() {
   const searchQuery = searchParams.get("query");
   const location = useLocation().pathname;
   const extractFirstPath = require("./extractFirstPath");
-  
+
   const handleClick = (title) => {
     if (info.title !== title) {
       setInfo(cards.find((card) => card.title === title));
@@ -86,7 +86,7 @@ function FilterCards() {
       }
     }
     return setLoading(false);
-  }, [setCards, searchQuery, location]);
+  }, [setCards, searchQuery, location, extractFirstPath]);
 
   useEffect(() => {
     fitty("#my-element", {

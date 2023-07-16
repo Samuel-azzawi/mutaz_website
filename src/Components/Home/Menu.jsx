@@ -11,6 +11,7 @@ function Menu() {
   const [isOpen, setIsOpen] = useState(false);
   const [menuOs, setMenuOs] = useState("");
   const [firstPath, setFirstPath] = useState("");
+  const [isBigScreen, setIsBigScreen] = useState(true);
   const size = useWindowSize();
   const location = useLocation().pathname;
   const extractFirstPath = require("./extractFirstPath");
@@ -55,9 +56,20 @@ function Menu() {
     }
   }, [extractFirstPath, firstPath, location]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsBigScreen(window.innerWidth > 980);
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
-      {size.width > 980 ? (
+      {isBigScreen ? (
         <div className="big-screen-items">
           <button className="button-48" onClick={resetOsButton}>
             <span className="text">
