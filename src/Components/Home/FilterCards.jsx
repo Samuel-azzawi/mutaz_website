@@ -1,16 +1,23 @@
 import "./Cards.css";
 import { FaCaretDown } from "react-icons/fa";
+import { CardContent } from "./CardContent";
 import CardImage from "./CardImage";
 import fitty from "fitty";
 import { useContext, useEffect, useRef, useState } from "react";
 import useOutsideClick from "./useOutsideClick";
 import UserContext from "../UserContext/UserContext";
+import { useSearchParams } from "react-router-dom";
 
-function Cards() {
+function FilterCards() {
   const [info, setInfo] = useState({});
   const [isHiding, setIsHiding] = useState(false);
-  const [cards] = useContext(UserContext)[3];
+  const [cards, setCards] = useContext(UserContext)[3];
+  const [storedValue] = useContext(UserContext)[1];
+  const [search, setSearch] = useContext(UserContext)[4];
   const menuRef = useRef(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchQuery = searchParams.get("query");
+
 
   const handleClick = (title) => {
     if (info.title !== title) {
@@ -38,12 +45,37 @@ function Cards() {
   useOutsideClick(menuRef, handleOutsideClick);
 
   useEffect(() => {
+    if (searchQuery) {
+      console.log(searchQuery);
+      const filteredCards = CardContent.filter((card) =>
+        card.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      console.log(filteredCards)
+      setCards(filteredCards);
+    } else if (Array.isArray(storedValue) && storedValue.length === 1) {
+      setCards(storedValue);
+      setSearchParams({ query: storedValue[0].name });
+    } else {
+      setCards(storedValue);
+      setSearchParams({ query: search });
+    }
+  }, [storedValue, search, setCards, setSearchParams]);
+
+  useEffect(() => {
     fitty("#my-element", {
       minSize: 12,
       maxSize: 18,
     });
   }, [info]);
+
   return (
+    <>
+      {cards.length === 0 && (
+        <div className="no-match-found">
+          <h1>no match found</h1>
+        </div>
+      )}
+      {cards.length > 0 && (
         <div className="cards_container" ref={menuRef}>
           <>
             {cards.map((card, index) => {
@@ -107,7 +139,9 @@ function Cards() {
             })}
           </>
         </div>
+      )}
+    </>
   );
 }
 
-export default Cards;
+export default FilterCards;

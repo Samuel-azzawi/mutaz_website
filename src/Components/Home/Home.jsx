@@ -3,10 +3,11 @@ import "./Home.css";
 import Menu from "./Menu";
 import Search from "./Search";
 import headerLogo from "../Files/logos/headerLogo.svg";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../UserContext/UserContext";
 import { CardContent } from "./CardContent";
+import FilterCards from "./FilterCards";
 
 function Home() {
   const [cards, setCards] = useContext(UserContext)[3];
@@ -15,6 +16,7 @@ function Home() {
     navigate("/");
     setCards(CardContent)
   };
+  const location = useLocation().pathname;
 
   return (
     <>
@@ -28,7 +30,9 @@ function Home() {
         <Menu />
       </div>
       <Search />
-      <Cards />
+      
+      {location === "/" && <Cards />}
+      {location === "/search" && <FilterCards />}
     </>
   );
 }

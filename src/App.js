@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useState } from "react";
 import UserContext from "./Components/UserContext/UserContext";
 import Home from "./Components/Home/Home";
@@ -10,6 +10,7 @@ function App() {
   const [storedValue, setStoredValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [cards, setCards] = useState(CardContent);
+  const [search, setSearch] = useState("");
 
   return (
     <UserContext.Provider
@@ -18,27 +19,14 @@ function App() {
         [storedValue, setStoredValue],
         [suggestions, setSuggestions],
         [cards, setCards],
+        [search, setSearch],
       ]}
     >
       <div className="App">
         <BrowserRouter>
           <Routes>
-            <Route
-              path="/"
-              element={
-                <div>
-                  <Home />
-                </div>
-              }
-            />
-            <Route
-              path="/search"
-              element={
-                <div>
-                  <Home />
-                </div>
-              }
-            />
+            <Route path="/" element={<Home />} />
+            <Route path="/search" element={<Home />} />
           </Routes>
         </BrowserRouter>
       </div>

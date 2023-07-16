@@ -5,16 +5,21 @@ import { CardContent } from "./CardContent";
 import useOutsideClick from "./useOutsideClick";
 import UserContext from "../UserContext/UserContext";
 import { useNavigate } from "react-router";
+import { useLocation } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 function Search() {
   const [searchValue, setSearchValue] = useState("");
   const [storedValue, setStoredValue] = useContext(UserContext)[1];
   const [suggestions, setSuggestions] = useContext(UserContext)[2];
+  const [cards, setCards] = useContext(UserContext)[3];
+  const [search, setSearch] = useContext(UserContext)[4];
+  const [searchParams, setSearchParams] = useSearchParams();
   const suggestionsRef = useRef(null);
   const inputRef = useRef(null);
+  const searchQuery = searchParams.get("query");
 
   const navigate = useNavigate();
-  const url = window.location.href;
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
@@ -29,9 +34,9 @@ function Search() {
   const handleSuggestions = (card) => {
     setStoredValue([card]);
     setSearchValue("");
-    navigate("/search");
     setTimeout(() => {
       setSuggestions([]);
+      navigate("/search");
     }, 1);
   };
 
@@ -45,21 +50,22 @@ function Search() {
 
   const handleSearchButtonClick = () => {
     if (searchValue) {
-      setStoredValue(suggestions);
-      setSearchValue("");
       navigate("/search");
+      setStoredValue(suggestions);
+      setSearch(searchValue);
+      console.log(searchValue);
+      setSearchValue("");
     }
   };
 
   const reset = () => {
+    setCards(CardContent);
     setStoredValue("");
-    if (url.includes("/search")) {
-      navigate("/");
-    }
+    navigate("/");
   };
 
   useEffect(() => {
-    if (searchValue.length >= 1) {
+    if (searchValue.length > 0) {
       const filteredSuggestions = CardContent.filter((card) =>
         card.name.toLowerCase().includes(searchValue.toLowerCase())
       );
@@ -68,29 +74,6 @@ function Search() {
       setSuggestions([]);
     }
   }, [searchValue]);
-
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      localStorage.setItem("shouldNavigateToHome", "true");
-    };
-
-    const handleLoad = () => {
-      const shouldNavigate = localStorage.getItem("shouldNavigateToHome");
-
-      if (shouldNavigate) {
-        localStorage.removeItem("shouldNavigateToHome");
-        navigate("/");
-      }
-    };
-
-    window.addEventListener("beforeunload", handleBeforeUnload);
-    window.addEventListener("load", handleLoad);
-
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-      window.removeEventListener("load", handleLoad);
-    };
-  }, [navigate]);
 
   useEffect(() => {
     const suggestionsElement = document.querySelector(".suggestions");
@@ -131,7 +114,7 @@ function Search() {
           ))}
         </ul>
       )}
-      {storedValue && url.includes("/search") && (
+      {searchQuery && (
         <button className="reset-button button-89" onClick={reset}>
           reset search
         </button>
