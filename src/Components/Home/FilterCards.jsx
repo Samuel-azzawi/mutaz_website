@@ -49,13 +49,14 @@ function FilterCards() {
   useOutsideClick(menuRef, handleOutsideClick);
 
   useEffect(() => {
+    setLoading(true);
     if (storedValue.length === 1) {
       setSearchParams({ query: storedValue[0].name });
-      setStoredValue("");
     } else if (search) {
       setSearchParams({ query: search });
       setSearch("");
     }
+    setLoading(false);
   }, [search, setSearchParams, setSearch, setStoredValue, storedValue]);
 
   useEffect(() => {
@@ -85,7 +86,7 @@ function FilterCards() {
         setCards(filteredCards);
       }
     }
-    return setLoading(false);
+    setLoading(false);
   }, [setCards, searchQuery, location, extractFirstPath]);
 
   useEffect(() => {

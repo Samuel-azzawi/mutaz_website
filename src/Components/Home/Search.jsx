@@ -35,12 +35,10 @@ function Search() {
   const handleSuggestions = (card) => {
     setStoredValue([card]);
     setSearchValue("");
-    setTimeout(() => {
-      setSuggestions([]);
-      if (!location.includes("search")) {
-        os ? navigate(`${location}/search`) : navigate("/search");
-      }
-    }, 1);
+    setSuggestions([]);
+    if (!location.includes("search")) {
+      os ? navigate(`${location}/search`) : navigate("/search");
+    }
   };
 
   const handleFormSubmit = (event) => {
@@ -64,9 +62,10 @@ function Search() {
   };
 
   const reset = () => {
-    setCards(CardContent);
     setStoredValue("");
-    navigate("/");
+    setSuggestions([]);
+    setSearch("");
+    os ? navigate(`/${os}`) : navigate("/");
   };
   //check if path includes os
   useEffect(() => {
