@@ -91,11 +91,12 @@ function FilterCards() {
   }, [setCards, searchQuery, location, extractFirstPath]);
 
   useEffect(() => {
+    if(!loading){
     fitty("#my-element", {
       minSize: 12,
       maxSize: 18,
-    });
-  }, [info]);
+    });}
+  }, [info, loading]);
 
   return (
     <>
