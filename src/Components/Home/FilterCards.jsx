@@ -51,8 +51,8 @@ function FilterCards() {
   useEffect(() => {
     setLoading(true);
     if (storedValue.length === 1) {
-      console.log(storedValue);
       setSearchParams({ query: storedValue[0].name });
+      setStoredValue([])
     } else if (search) {
       setSearchParams({ query: search });
       setSearch("");
@@ -74,7 +74,7 @@ function FilterCards() {
       setCards(filteredCards);
       newcards = filteredCards;
     }
-    if (searchQuery) {
+    if (searchQuery && location.includes("search")) {
       if (newcards) {
         const filteredCards = newcards.filter((card) =>
           card.name.toLowerCase().includes(searchQuery.toLowerCase())

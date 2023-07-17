@@ -5,7 +5,7 @@ import "./Menu.css";
 import useWindowSize from "./useWindowSize";
 import { useState, useRef, useEffect, useContext } from "react";
 import useOutsideClick from "./useOutsideClick";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import UserContext from "../UserContext/UserContext";
 import { CardContent } from "./CardContent";
 
