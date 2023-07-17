@@ -11,14 +11,13 @@ function Search() {
   const [searchValue, setSearchValue] = useState("");
   const [storedValue, setStoredValue] = useContext(UserContext)[1];
   const [suggestions, setSuggestions] = useContext(UserContext)[2];
-  const [cards, setCards] = useContext(UserContext)[3];
   const [search, setSearch] = useContext(UserContext)[4];
+  const [os, setOs] = useContext(UserContext)[5];
   const [searchParams] = useSearchParams();
   const suggestionsRef = useRef(null);
   const inputRef = useRef(null);
   const searchQuery = searchParams.get("query");
   const location = useLocation().pathname;
-  const [os, setOs] = useContext(UserContext)[5]
 
   const navigate = useNavigate();
 

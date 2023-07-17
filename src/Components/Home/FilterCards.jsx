@@ -11,13 +11,13 @@ import Header from "./Header";
 import Search from "./Search";
 
 function FilterCards() {
+  const [storedValue, setStoredValue] = useContext(UserContext)[1];
+  const [cards, setCards] = useContext(UserContext)[3];
+  const [search, setSearch] = useContext(UserContext)[4];
+  const menuRef = useRef(null);
   const [info, setInfo] = useState({});
   const [isHiding, setIsHiding] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [cards, setCards] = useContext(UserContext)[3];
-  const [storedValue, setStoredValue] = useContext(UserContext)[1];
-  const [search, setSearch] = useContext(UserContext)[4];
-  const menuRef = useRef(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQuery = searchParams.get("query");
   const location = useLocation().pathname;
@@ -51,7 +51,7 @@ function FilterCards() {
   useEffect(() => {
     setLoading(true);
     if (storedValue.length === 1) {
-      console.log(storedValue)
+      console.log(storedValue);
       setSearchParams({ query: storedValue[0].name });
     } else if (search) {
       setSearchParams({ query: search });
@@ -91,12 +91,11 @@ function FilterCards() {
   }, [setCards, searchQuery, location, extractFirstPath]);
 
   useEffect(() => {
-    if(!loading){
     fitty("#my-element", {
       minSize: 12,
       maxSize: 18,
-    });}
-  }, [info, loading]);
+    });
+  }, [info, cards, loading]);
 
   return (
     <>
@@ -115,72 +114,67 @@ function FilterCards() {
           )}
           {cards.length > 0 && (
             <div className="cards_container" ref={menuRef}>
-              <>
-                {cards.map((card, index) => {
-                  const imageName = `${card.title}`;
-                  const isSelected = info && info.title === card.title;
-                  return (
-                    <button
-                      key={index}
-                      className={`card ${isSelected ? "selected" : ""}`}
-                      onClick={() => handleClick(card.title)}
-                    >
-                      <div className="card-image">
-                        <CardImage imageName={imageName} />
-                      </div>
-                      <div className="card-content">
-                        <p id="my-element" className="text">
-                          {card.name}
-                        </p>
-                        <div className="card-info-container">
-                          <div
-                            className={`card-info ${
-                              isSelected ? "show" : "hide"
-                            }`}
-                          >
-                            {isSelected && !isHiding && (
-                              <>
-                                <div>
-                                  <FaCaretDown
-                                    className="card-info-closing-button"
-                                    onClick={closingCardInfo}
-                                  />
-                                  <h1
-                                    id="my-element"
-                                    className="card-info-title"
-                                  >
-                                    {info.name}
-                                  </h1>
-                                </div>
-                                <div className="card-info-text">
-                                  <p className="card-info-version">
-                                    Version: {info.v[0]}
-                                  </p>
-                                  <p className="card-info-year">
-                                    Year: {info.year}
-                                  </p>
-                                </div>
-                                <div
-                                  onClick={() => downloadButton(info.link[0])}
-                                  className="downloadButton"
-                                >
-                                  download now!
-                                </div>
-                                <div
-                                  onClick={() => downloadButton(info.link[0])}
-                                  className="otherVersionsButton"
-                                >
-                                  other versions
-                                </div>
-                              </>
-                            )}
-                          </div>
+              {cards.map((card, index) => {
+                const imageName = `${card.title}`;
+                const isSelected = info && info.title === card.title;
+                return (
+                  <button
+                    key={index}
+                    className={`card ${isSelected ? "selected" : ""}`}
+                    onClick={() => handleClick(card.title)}
+                  >
+                    <div className="card-image">
+                      <CardImage imageName={imageName} />
+                    </div>
+                    <div className="card-content">
+                      <p id="my-element" className="text">
+                        {card.name}
+                      </p>
+                      <div className="card-info-container">
+                        <div
+                          className={`card-info ${
+                            isSelected ? "show" : "hide"
+                          }`}
+                        >
+                          {isSelected && !isHiding && (
+                            <>
+                              <div>
+                                <FaCaretDown
+                                  className="card-info-closing-button"
+                                  onClick={closingCardInfo}
+                                />
+                                <h1 id="my-element" className="card-info-title">
+                                  {info.name}
+                                </h1>
+                              </div>
+                              <div className="card-info-text">
+                                <p className="card-info-version">
+                                  Version: {info.v[0]}
+                                </p>
+                                <p className="card-info-year">
+                                  Year: {info.year}
+                                </p>
+                              </div>
+                              <div
+                                onClick={() => downloadButton(info.link[0])}
+                                className="downloadButton"
+                              >
+                                download now!
+                              </div>
+                              <div
+                                onClick={() => downloadButton(info.link[0])}
+                                className="otherVersionsButton"
+                              >
+                                other versions
+                              </div>
+                            </>
+                          )}
                         </div>
                       </div>
-                    </button>
-                  );
-                })}
-              </>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           )}
         </>

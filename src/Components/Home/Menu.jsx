@@ -86,7 +86,7 @@ function Menu() {
     } else {
       setActiveButton("all");
     }
-  }, [location,setActiveButton]);
+  }, [location, setActiveButton]);
 
   return (
     <>
@@ -135,14 +135,13 @@ function Menu() {
         </div>
       ) : (
         <>
-
           <div
             className={`menu-container ${isOpen ? "open" : "close"}`}
             ref={menuRef}
           >
             <div className={`hamburger-menu ${isOpen ? "open" : ""}`}>
               <div className="hamburger-icon" onClick={toggleMenu}>
-                  <span className="menu-os">{os || "All os"}</span>
+                <span className="menu-os">{os || "All os"}</span>
                 <span className={`line ${isOpen ? "line1" : ""}`}></span>
                 <span className={`line ${isOpen ? "line2" : ""}`}></span>
                 <span className={`line ${isOpen ? "line3" : ""}`}></span>

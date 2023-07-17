@@ -6,8 +6,7 @@
   position: relative;
 }
 
-
-.reset-button{
+.reset-button {
   position: relative;
   margin-top: 20px;
 }
@@ -133,7 +132,7 @@ ul.suggestions li:hover {
   ul.suggestions {
     width: 94%;
   }
-  .form-wrapper #submit{
+  .form-wrapper #submit {
     width: 25%;
   }
 }
@@ -215,4 +214,3 @@ ul.suggestions li:hover {
     transform: translate3d(0, 0, 0) translateZ(0);
   }
 }
-

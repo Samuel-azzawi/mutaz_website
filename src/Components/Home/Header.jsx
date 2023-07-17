@@ -12,7 +12,7 @@ function Header() {
   const navigate = useNavigate();
   const handleNavigation = () => {
     navigate("/");
-    setOs("")
+    setOs("");
     setCards(CardContent);
   };
 
