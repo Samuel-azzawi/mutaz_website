@@ -13,6 +13,7 @@ function Menu() {
   const [storedValue, setStoredValue] = useContext(UserContext)[1];
   const [cards, setCards] = useContext(UserContext)[3];
   const [os, setOs] = useContext(UserContext)[5];
+  const [activeButton, setActiveButton] = useContext(UserContext)[6];
   const [isOpen, setIsOpen] = useState(false);
   const [menuOs, setMenuOs] = useState("");
   const [firstPath, setFirstPath] = useState("");
@@ -75,29 +76,57 @@ function Menu() {
     };
   }, []);
 
+  useEffect(() => {
+    if (location.includes("windows")) {
+      setActiveButton("windows");
+    } else if (location.includes("mac")) {
+      setActiveButton("mac");
+    } else if (location.includes("android")) {
+      setActiveButton("android");
+    } else {
+      setActiveButton("all");
+    }
+  }, [location,setActiveButton]);
+
   return (
     <>
       {isBigScreen ? (
         <div className="big-screen-items">
-          <button className="button-48" onClick={resetOsButton}>
+          <button
+            className={`button-48 ${activeButton === "all" ? "active" : ""}`}
+            onClick={resetOsButton}
+          >
             <span className="text">
               <MdOutlineOtherHouses className="logo" />
               <p>all os</p>
             </span>
           </button>
-          <button className="button-48" onClick={windowsButton}>
+          <button
+            className={`button-48 ${
+              activeButton === "windows" ? "active" : ""
+            }`}
+            onClick={windowsButton}
+          >
             <span className="text">
               <GrWindows className="logo" />
               <p>Windows</p>
             </span>
           </button>
-          <button className="button-48" onClick={macButton}>
+          <button
+            className={`button-48 ${activeButton === "mac" ? "active" : ""}`}
+            onClick={macButton}
+          >
             <span className="text">
               <AiFillApple className="logo" />
               <p>Mac</p>
             </span>
           </button>
-          <button className="button-48" onClick={androidButton}>
+          <button
+            className={`button-48 ${
+              activeButton === "android" ? "active" : ""
+            }`}
+            onClick={androidButton}
+          >
             <span className="text">
               <AiFillAndroid className="logo" />
               <p>Android</p>
@@ -106,7 +135,6 @@ function Menu() {
         </div>
       ) : (
         <>
-          {menuOs && <div className="os_header">{firstPath}</div>}
 
           <div
             className={`menu-container ${isOpen ? "open" : "close"}`}
@@ -114,7 +142,7 @@ function Menu() {
           >
             <div className={`hamburger-menu ${isOpen ? "open" : ""}`}>
               <div className="hamburger-icon" onClick={toggleMenu}>
-                <span className="menu-os">OS filter</span>
+                  <span className="menu-os">{os || "All os"}</span>
                 <span className={`line ${isOpen ? "line1" : ""}`}></span>
                 <span className={`line ${isOpen ? "line2" : ""}`}></span>
                 <span className={`line ${isOpen ? "line3" : ""}`}></span>

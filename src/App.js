@@ -12,6 +12,7 @@ function App() {
   const [cards, setCards] = useState(CardContent);
   const [search, setSearch] = useState("");
   const [os, setOs] = useState("");
+  const [activeButton, setActiveButton] = useState(null);
 
   return (
     <UserContext.Provider
@@ -22,6 +23,7 @@ function App() {
         [cards, setCards],
         [search, setSearch],
         [os, setOs],
+        [activeButton, setActiveButton],
       ]}
     >
       <div className="App">
