@@ -8,9 +8,11 @@ import { CardContent } from "./CardContent";
 
 function Header() {
   const [cards, setCards] = useContext(UserContext)[3];
+  const [os, setOs] = useContext(UserContext)[5];
   const navigate = useNavigate();
   const handleNavigation = () => {
     navigate("/");
+    setOs("")
     setCards(CardContent);
   };
   return (

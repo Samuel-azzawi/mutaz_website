@@ -18,7 +18,7 @@ function Search() {
   const inputRef = useRef(null);
   const searchQuery = searchParams.get("query");
   const location = useLocation().pathname;
-  const [os, setOs] = useState("");
+  const [os, setOs] = useContext(UserContext)[5]
 
   const navigate = useNavigate();
 

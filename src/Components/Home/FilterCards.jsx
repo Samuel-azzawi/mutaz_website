@@ -51,6 +51,7 @@ function FilterCards() {
   useEffect(() => {
     setLoading(true);
     if (storedValue.length === 1) {
+      console.log(storedValue)
       setSearchParams({ query: storedValue[0].name });
     } else if (search) {
       setSearchParams({ query: search });

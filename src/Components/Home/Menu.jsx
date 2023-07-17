@@ -3,11 +3,16 @@ import { GrWindows } from "react-icons/gr";
 import { MdOutlineOtherHouses } from "react-icons/md";
 import "./Menu.css";
 import useWindowSize from "./useWindowSize";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import useOutsideClick from "./useOutsideClick";
 import { useLocation, useNavigate } from "react-router-dom";
+import UserContext from "../UserContext/UserContext";
+import { CardContent } from "./CardContent";
 
 function Menu() {
+  const [storedValue, setStoredValue] = useContext(UserContext)[1];
+  const [cards, setCards] = useContext(UserContext)[3];
+  const [os, setOs] = useContext(UserContext)[5];
   const [isOpen, setIsOpen] = useState(false);
   const [menuOs, setMenuOs] = useState("");
   const [firstPath, setFirstPath] = useState("");
@@ -42,6 +47,9 @@ function Menu() {
     navigate("/android");
   };
   const resetOsButton = () => {
+    setStoredValue("");
+    setCards(CardContent);
+    setOs("");
     navigate("/");
   };
 
